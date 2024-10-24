@@ -17,15 +17,22 @@ ejecutaServicio(function () {
   $titulo = htmlentities($modelo[titulo_tarea]);
   $descripcion = htmlentities($modelo[descripcion]);
   $estado = htmlentities($modelo[estado]);
-  $fecha = htmlentities($modelo[dfecha]);
+  $fecha = htmlentities($modelo[fecha]);
   $costo = htmlentities($modelo[costo]);
   $created_at = htmlentities($modelo[created_at]);
+  if($estado === 1){
+    $aux = "Completa";
+  }
+  else{
+    $aux = "Incompleta";
+  }
   $render .=
-   "<li>
-     <p>
-      <a href='modifica.html?id=$id'>$titulo</a>
-     </p>
-    </li>";
+  "<dl>
+    <dt><strong><a href='modifica.html?id=$id'>$titulo</a></strong></dt>
+      <dd><strong>Descripción: </strong>{$descripcion}</dd>
+      <dd><strong>Fecha: </strong>{$fecha}</dd>
+      <dd><strong>Estado: </strong>{$aux}</dd>
+  </dl>";
  }
 
  devuelveJson(["lista" => ["innerHTML" => $render]]);

@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/../lib/php/ejecutaServicio.php";
 require_once __DIR__ . "/../lib/php/recuperaTexto.php";
+require_once __DIR__ . "/../lib/php/recuperaEntero.php";
 require_once __DIR__ . "/../lib/php/validaTitulo.php";
 require_once __DIR__ . "/../lib/php/validaCosto.php";
 require_once __DIR__ . "/../lib/php/validaFecha.php";
@@ -20,20 +21,20 @@ ejecutaServicio(function () {
     $descripcion = recuperaTexto("descripcion");
     /*$descripcion = validaDescripcion($descripcion);
 */
-    $estado = recuperaTexto("estado");
+    $estado = recuperaEntero("estado");
   /*  $estado = validaEstado($estado);
 */
     $fecha = recuperaTexto("fecha");
   /*  $fecha = validaFecha($fecha);   
 */
-    $costo = recuperaTexto("costo");
+    $costo = recuperaEntero("costo");
   /*  $costo = validaCosto($costo);
 */
     $created_at = time();
 
  $pdo = Bd::pdo();
  insert(pdo: $pdo, into: tareas, values: [
-     titulo_tarea => $titulo_tarea,
+      titulo_tarea => $titulo_tarea,
       descripcion => $descripcion,
       estado => $estado,
       fecha => $fecha,

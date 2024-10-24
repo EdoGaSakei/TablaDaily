@@ -29,13 +29,8 @@ class Bd
       costo NUMERIC,
       created_at TEXT,
       CONSTRAINT id_tarea_PK
-       PRIMARY KEY(id_tarea),
-       constraint title_tarea
-       CHECK(LENGTH(titulo_tarea) > 0),
-       constraint descrip_tarea
-       CHECK(LENGTH(descripcion) > 0)
-     )"
-   );
+       PRIMARY KEY(id_tarea))
+   ");
   }
 
   return self::$pdo;

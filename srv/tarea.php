@@ -11,7 +11,7 @@ require_once __DIR__ . "/TABLA_tareas.php";
 
 ejecutaServicio(function () {
 
- $id = recuperaIdEntero("id_tarea");
+ $id = recuperaIdEntero("id");
 
  $modelo =
   selectFirst(pdo: Bd::pdo(),  from: tareas,  where: [id_tarea => $id]);

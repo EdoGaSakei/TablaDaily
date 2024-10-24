@@ -1,6 +1,6 @@
 <?php
 
-const tareas = "tareas`";
+const tareas = "tareas";
 const id_tarea = "id_tarea";
 const titulo_tarea = "titulo_tarea";
 const descripcion = "descripcion";

@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/../lib/php/ejecutaServicio.php";
 require_once __DIR__ . "/../lib/php/recuperaIdEntero.php";
+require_once __DIR__ . "/../lib/php/recuperaEntero.php";
 require_once __DIR__ . "/../lib/php/recuperaTexto.php";
 require_once __DIR__ . "/../lib/php/validaTitulo.php";
 require_once __DIR__ . "/../lib/php/validaCosto.php";
@@ -22,13 +23,13 @@ ejecutaServicio(function () {
   $descripcion = recuperaTexto("descripcion");
   /*$descripcion = validaDescripcion($descripcion);
 */
-  $estado = recuperaTexto("estado");
+  $estado = recuperaEntero("estado");
   /*$estado = validaEstado($estado);
 */
   $fecha = recuperaTexto("fecha");
   /*$fecha = validaFecha($fecha);   
 */
-  $costo = recuperaTexto("costo");
+  $costo = recuperaEntero("costo");
   /*$costo = validaCosto($costo);
 */
  update(
@@ -39,8 +40,7 @@ ejecutaServicio(function () {
   descripcion => $descripcion,
   estado => $estado,
   fecha => $fecha,
-  costo => $costo,
-  created_at => $created_at
+  costo => $costo
 ],
   where: [id_tarea => $id]
  );
