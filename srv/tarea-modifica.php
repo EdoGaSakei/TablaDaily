@@ -18,20 +18,20 @@ ejecutaServicio(function () {
 
   $id = recuperaIdEntero("id");
   $titulo_tarea = recuperaTexto("titulo_tarea");
-  /*$titulo_tarea = validaTitulo($titulo_tarea);*/
+  $titulo_tarea = validaTitulo($titulo_tarea);
 
   $descripcion = recuperaTexto("descripcion");
-  /*$descripcion = validaDescripcion($descripcion);
-*/
+  $descripcion = validaDescripcion($descripcion);
+
   $estado = recuperaEntero("estado");
-  /*$estado = validaEstado($estado);
-*/
+  $estado = validaEstado($estado);
+
   $fecha = recuperaTexto("fecha");
-  /*$fecha = validaFecha($fecha);   
-*/
+  $fecha = validaFecha($fecha);   
+
   $costo = recuperaEntero("costo");
-  /*$costo = validaCosto($costo);
-*/
+  $costo = validaCosto($costo);
+
  update(
   pdo: Bd::pdo(),
   table: tareas,

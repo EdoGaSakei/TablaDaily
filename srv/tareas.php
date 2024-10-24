@@ -20,7 +20,7 @@ ejecutaServicio(function () {
   $fecha = htmlentities($modelo[fecha]);
   $costo = htmlentities($modelo[costo]);
   $created_at = htmlentities($modelo[created_at]);
-  if($estado === 1){
+  if($estado == 1){
     $aux = "Completa";
   }
   else{

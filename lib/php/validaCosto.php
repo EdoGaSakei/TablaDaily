@@ -3,7 +3,7 @@
 require_once __DIR__ . "/BAD_REQUEST.php";
 require_once __DIR__ . "/ProblemDetails.php";
 
-function validaCosto(false|string $costo)
+function validaCosto(false|null|Int $costo)
 {
 
  if ($costo === false)
