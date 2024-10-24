@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width">
+
+ <title>Agregar Tarea</title>
+
+ <script type="module" src="lib/js/submitForm.js"></script>
+ <script type="module" src="lib/js/muestraError.js"></script>
+
+</head>
+
+<body>
+
+ <form onsubmit="submitForm('srv/tarea-agrega.php', event)
+    .then(modelo => location.href = 'index.html')
+    .catch(muestraError)">
+
+  <h1>Agregar</h1>
+
+  <p><a href="index.html">Cancelar</a></p>
+
+  <p>
+   <label>
+    Título *
+    <input type="text" name="titulo_tarea">
+   </label>
+  </p>
+  <p>
+    <label>
+     Descripción *
+     <textarea name="desc" id="descripcion"></textarea>
+    </label>
+   </p>
+   <p>
+    <label>
+     Estado *
+     <select name="estado" id="estado">
+      <option value="0">Incompleta</option>
+      <option value="1">Completa</option>
+     </select>
+    </label>
+   </p>
+   <p>
+    <label>
+     Fecha 
+     <input type="date" name="fecha">
+    </label>
+   </p>
+   <p>
+    <label>
+     Costo *
+     <input type="number" name="costo">
+    </label>
+   </p>
+
+  <p>* Obligatorio</p>
+
+  <p><button type="submit">Agregar</button></p>
+
+ </form>
+
+</body>
+
+</html>

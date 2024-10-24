@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+ <meta charset="UTF-8">
+ <meta name="viewport"
+   content="width=device-width">
+
+ <title>Modificar tareas DailyPlanner</title>
+
+ <script type="module" src="lib/js/consumeJson.js"></script>
+ <script type="module" src="lib/js/submitForm.js"></script>
+ <script type="module" src="lib/js/muestraObjeto.js"></script>
+ <script type="module" src="lib/js/muestraError.js"></script>
+
+ <script>
+  // Obtiene los parámetros de la página.
+  const params = new URL(location.href).searchParams
+ </script>
+
+</head>
+
+<body onload="if (params.size > 0) {
+   consumeJson('srv/tarea.php?' + params)
+    .then(respuesta => muestraObjeto(forma, respuesta.body))
+    .catch(muestraError)
+  }">
+
+ <form id="forma" onsubmit="submitForm('srv/tarea-modifica.php', event)
+    .then(respuesta => location.href = 'index.html')
+    .catch(muestraError)">
+
+  <h1>Modificar Tarea</h1>
+
+  <p><a href="index.html">Cancelar</a></p>
+
+  <input name="id" type="hidden">
+
+  <p>
+    <label>
+     Título *
+     <input type="text" name="titulo_tarea">
+    </label>
+   </p>
+   <p>
+     <label>
+      Descripción *
+      <textarea name="desc" id="descripcion"></textarea>
+     </label>
+    </p>
+    <p>
+     <label>
+      Estado *
+      <select name="estado" id="estado">
+       <option value="0">Incompleta</option>
+       <option value="1">Completa</option>
+      </select>
+     </label>
+    </p>
+    <p>
+     <label>
+      Fecha 
+      <input type="date" name="fecha">
+     </label>
+    </p>
+    <p>
+     <label>
+      Costo *
+      <input type="number" name="costo">
+     </label>
+    </p>
+ 
+   <p>* Obligatorio</p>
+
+  <p>
+
+   <button type="submit">Guardar</button>
+
+   <button type="button" onclick="
+     if (params.size > 0 && confirm('Confirma la eliminación')) {
+      consumeJson('srv/tarea-elimina.php?' + params)
+       .then(() => location.href = 'index.html')
+       .catch(muestraError)
+     }">
+    Eliminar
+   </button>
+
+  </p>
+
+ </form>
+
+</body>
+
+</html>
