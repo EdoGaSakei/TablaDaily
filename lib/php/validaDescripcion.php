@@ -3,7 +3,7 @@
 require_once __DIR__ . "/BAD_REQUEST.php";
 require_once __DIR__ . "/ProblemDetails.php";
 
-function validaDescripcion(false|String $descripcion)
+function validaDescripcion(false|string $descripcion)
 {
 
  if ($descripcion === false)

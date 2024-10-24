@@ -17,38 +17,38 @@ ejecutaServicio(function () {
 
   $id = recuperaIdEntero("id");
   $titulo_tarea = recuperaTexto("titulo_tarea");
-  $titulo_tarea = validaTitulo($titulo_tarea);
+  /*$titulo_tarea = validaTitulo($titulo_tarea);*/
 
   $descripcion = recuperaTexto("descripcion");
-  $descripcion = validaDescripcion($descripcion);
-
+  /*$descripcion = validaDescripcion($descripcion);
+*/
   $estado = recuperaTexto("estado");
-  $estado = validaEstado($estado);
-
+  /*$estado = validaEstado($estado);
+*/
   $fecha = recuperaTexto("fecha");
-  $fecha = validaFecha($fecha);   
-
+  /*$fecha = validaFecha($fecha);   
+*/
   $costo = recuperaTexto("costo");
-  $costo = validaCosto($costo);
-
+  /*$costo = validaCosto($costo);
+*/
  update(
   pdo: Bd::pdo(),
   table: tareas,
   set: [
-    titulo_tarea => $titulo_tarea,
+  titulo_tarea => $titulo_tarea,
   descripcion => $descripcion,
   estado => $estado,
   fecha => $fecha,
   costo => $costo,
-  created_at => $created_at,
+  created_at => $created_at
 ],
   where: [id_tarea => $id]
  );
 
  devuelveJson([
   "id" => ["value" => $id],
-  "titulo_tarea" => ["value" => $nombre],
-  "descripcion" => ["value" => $titulo_tarea],
+  "titulo_tarea" => ["value" => $titulo_tarea],
+  "descripcion" => ["value" => $descripcion],
   "estado" => ["value" => $estado],
   "fecha" => ["value" => $fecha],
   "costo" => ["value" => $costo],

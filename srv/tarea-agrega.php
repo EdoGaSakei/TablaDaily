@@ -15,25 +15,25 @@ require_once __DIR__ . "/TABLA_tareas.php";
 ejecutaServicio(function () {
 
     $titulo_tarea = recuperaTexto("titulo_tarea");
-    $titulo_tarea = validaTitulo($titulo_tarea);
+    /*$titulo_tarea = validaTitulo($titulo_tarea);*/
 
     $descripcion = recuperaTexto("descripcion");
-    /*$descripcion = validaDescripcion($descripcion);*/
-
+    /*$descripcion = validaDescripcion($descripcion);
+*/
     $estado = recuperaTexto("estado");
-    $estado = validaEstado($estado);
-
+  /*  $estado = validaEstado($estado);
+*/
     $fecha = recuperaTexto("fecha");
-    $fecha = validaFecha($fecha);   
-
+  /*  $fecha = validaFecha($fecha);   
+*/
     $costo = recuperaTexto("costo");
-    $costo = validaCosto($costo);
-
+  /*  $costo = validaCosto($costo);
+*/
     $created_at = time();
 
  $pdo = Bd::pdo();
  insert(pdo: $pdo, into: tareas, values: [
-      titulo_tarea => $titulo_tarea,
+     titulo_tarea => $titulo_tarea,
       descripcion => $descripcion,
       estado => $estado,
       fecha => $fecha,
@@ -45,8 +45,8 @@ ejecutaServicio(function () {
  $encodeId = urlencode($id);
  devuelveCreated("/srv/tarea.php?id=$encodeId", [
   "id" => ["value" => $id],
-  "titulo_tarea" => ["value" => $nombre],
-  "descripcion" => ["value" => $titulo_tarea],
+  "titulo_tarea" => ["value" => $titulo_tarea],
+  "descripcion" => ["value" => $descripcion],
   "estado" => ["value" => $estado],
   "fecha" => ["value" => $fecha],
   "costo" => ["value" => $costo],

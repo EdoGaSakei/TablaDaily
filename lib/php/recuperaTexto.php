@@ -6,7 +6,7 @@
  * 
  * Si el parámetro no se recibe, devuelve false.
  */
-function recuperaTexto(string $parametro): false|string
+function recuperaTexto(String $parametro): false|String
 {
  /* Si el parámetro está asignado en $_REQUEST,
   * devuelve su valor; de lo contrario, devuelve false.

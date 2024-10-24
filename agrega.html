@@ -15,7 +15,7 @@
 
 <body>
 
- <form onsubmit="submitForm('srv/tarea-agrega.php', event)
+ <form onsubmit="submitForm('/srv/tarea-agrega.php', event)
     .then(modelo => location.href = 'index.html')
     .catch(muestraError)">
 
@@ -26,13 +26,14 @@
   <p>
    <label>
     Título *
-    <input type="text" name="titulo_tarea">
+    <input type="text" name="titulo_tarea" id="titulo_tarea">
    </label>
   </p>
   <p>
     <label>
      Descripción *
-     <textarea name="desc" id="descripcion"></textarea>
+     <textarea name="descripcion" id="descripcion"></textarea>
+    <!--<input type="text" name="descripcion"> -->
     </label>
    </p>
    <p>
